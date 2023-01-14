@@ -24,15 +24,15 @@ def parse():
     )
 
     parser.add_argument(
-        "-i", "--indent", default=2, type=int, help="(default: %(default)s)"
+        "-i", "--indent", default=0, type=int, help="(default: %(default)s)"
     )
     parser.add_argument(
         "-w", "--width", default=80, type=int, help="(default: %(default)s)"
     )
     parser.add_argument(
-        "-t",
+        "-l",
         "--lang",
-        default="c",
+        default=langs.c,
         type=str,
         choices=langs.__members__.keys(),
         help="(default: %(default)s)",
