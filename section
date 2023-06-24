@@ -5,7 +5,7 @@ from enum import Enum
 from math import ceil, floor
 from typing import cast
 
-import pyperclip
+# import pyperclip
 
 
 class langs(Enum):
@@ -63,7 +63,8 @@ def copyOutput(args):
     rightDashes = "-" * ceil(totalDashesLen / 2)
 
     output = leftComment + leftDashes + text + rightDashes + rightComment
-    pyperclip.copy(output)
+    print(output)
+    # pyperclip.copy(output)
 
 
 args = parse()
