@@ -44,8 +44,9 @@ function generateComment({
 }: GenerateCommentProps): string {
   text = " " + text.trim() + " ";
 
-  const leftComment = comment[lang].multi?.start || comment[lang].single! + " ";
-  const rightComment = comment[lang].multi?.start || "";
+  const leftComment =
+    (comment[lang].multi?.start || comment[lang].single!) + " ";
+  const rightComment = " " + comment[lang].multi?.end || "";
 
   const totalDashesLen =
     line - indent - leftComment.length - text.length - rightComment.length;
