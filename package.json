@@ -6,7 +6,7 @@
     "dev": "node ./dist/bundle.js",
     "start": "webpack --watch",
     "build": "webpack",
-    "package": "pkg dist/bundle.js --targets node18-win-x64 --output ./dist/section"
+    "package": "npm run build && pkg dist/bundle.js --targets node18-win-x64 --output ./dist/section"
   },
   "keywords": [],
   "author": "",
