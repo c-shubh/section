@@ -15,7 +15,7 @@ func getRightPadding(unusedLength int, repeatChar rune) string {
 	return strings.Repeat(string(repeatChar), count)
 }
 
-func GenerateComment(text string) string {
+func GenerateComment(text string, indent int) string {
 	var lineLength = 80
 	var open = "/*"
 	var gapAfterOpen = " "
@@ -38,8 +38,9 @@ func GenerateComment(text string) string {
 	rightBuilder.WriteString(gapBeforeClose)
 	rightBuilder.WriteString(close)
 
-	var unusedLength = lineLength - leftBuilder.Len() - midBuilder.Len() - rightBuilder.Len()
-	return leftBuilder.String() +
+	var unusedLength = lineLength - indent - leftBuilder.Len() - midBuilder.Len() - rightBuilder.Len()
+	return strings.Repeat(" ", indent) +
+		leftBuilder.String() +
 		getLeftPadding(unusedLength, repeatChar) +
 		midBuilder.String() +
 		getRightPadding(unusedLength, repeatChar) +

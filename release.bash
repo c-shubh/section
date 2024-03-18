@@ -34,15 +34,6 @@ update_readme() {
 do_stuff() {
   update_readme
   echo 'Updated readme'
-
-  git add README.md
-  git commit --amend --no-edit
-
-  echo 'Amended commit to add readme'
-
-  git tag v"$(get_version)"
-
-  echo 'Tagged release commit'
 }
 
 main() {

@@ -17,9 +17,10 @@ var rootCmd = &cobra.Command{
 	Short:   "A CLI to generate section divider comments.",
 	Long:    "A CLI to generate section divider comments for various programming languages.",
 	Args:    cobra.ExactArgs(1),
-	Version: "0.0.1",
+	Version: "0.0.2",
 	Run: func(cmd *cobra.Command, args []string) {
-		var comment = services.GenerateComment(args[0])
+		var indent, _ = cmd.Flags().GetInt("indent")
+		var comment = services.GenerateComment(args[0], indent)
 		clipboard.WriteAll(comment)
 	},
 }
@@ -43,4 +44,5 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	// rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	rootCmd.Flags().IntP("indent", "i", 0, "Number of spaces to indent the comment with")
 }
